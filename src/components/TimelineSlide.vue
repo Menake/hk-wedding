@@ -9,9 +9,9 @@
         </v-row>
 
         <v-col class="timeline-event-content">
-          <v-row class="timeline-event-content-date text-center">{{this.event.date}}</v-row>
-          <v-row class="timeline-event-content-name text-center">{{this.event.name}}</v-row>
-          <v-row class="timeline-event-content-description text-justify">{{this.event.description}}</v-row>
+          <v-row class="timeline-event-content-date">{{this.event.date}}</v-row>
+          <v-row class="timeline-event-content-name">{{this.event.name}}</v-row>
+          <v-row v-for="(message,index) in this.event.description" :key="index" class="timeline-event-content-description text-justify">{{message}}</v-row>
         </v-col>
       </v-col>
     </v-row>
@@ -109,7 +109,7 @@
       &-date {
         font-style: italic;
         font-size: 3em;
-        margin-bottom: 10px;
+        margin: 0 0 10px 10px;
         color: $primary;
         font-weight: 300;
         transition: 0.2s ease 0.4s;
@@ -118,7 +118,7 @@
       &-name {
         font-weight: 600;
         font-size: 2em;
-        margin: 0 0 10px;
+        margin: 0 0 10px 10px;
         transition: 0.2s ease 0.5s;
         text-transform: uppercase;
       }
@@ -210,6 +210,14 @@
 
         &-content {
           left: 30%;
+
+          &-date {
+            margin: 0 0 10px -10px;
+          }
+
+          &-name {
+            margin: 0 0 10px -10px;
+          }
         }
       }
     }
@@ -230,7 +238,7 @@
         }
 
         &-content {
-          left: 30%;
+          left: 30%;          
         }
       }
     }
